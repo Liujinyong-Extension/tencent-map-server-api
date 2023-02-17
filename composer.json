@@ -1,0 +1,17 @@
+{
+    "name": "liujinyong\/tencent-map-server-api",
+    "description": "腾讯地图服务端api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "liujinyong",
+            "email": "realbrahma@163.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Liujinyong\\TencentMapServerApi\\": "src"
+        }
+    }
+}

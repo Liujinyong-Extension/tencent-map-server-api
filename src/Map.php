@@ -14,10 +14,6 @@
     class Map
     {
         /**
-         * 寄存url
-         */
-        const BASEURL = "";
-        /**
          * @var \GuzzleHttp\Client $httpClient 请求客户端
          */
         protected $httpClient;
@@ -26,6 +22,9 @@
          */
         protected $key;
 
+        /**
+         * @param $key string 开放平台的key
+         */
         public function __construct($key = "")
         {
             $this->httpClient = new Client();
@@ -34,14 +33,38 @@
 
         }
 
-        protected function tryHttp()
+        protected function tryHttp($url = "")
         {
+            if ($url == "") {
+                return false;
+            }
             try {
-                $res = $this->httpClient->post($this->host, []);
+                $res = $this->httpClient->get($url);
             } catch (Exception $e) {
+                throw new \Exception("服务器内部错误");
             }
 
             return json_decode($res->getBody()->getContents(), 1);
+        }
+
+        /**
+         * @param $param
+         *  获取卡车形势的路线
+         * @return false|mixed
+         * author Brahma
+         * trucking
+         * @throws \Exception
+         */
+        public function trucking($param)
+        {
+            $url   = "https://apis.map.qq.com/ws/direction/v1/trucking";
+            $param = is_array($param) ? http_build_query($param) : $param;
+
+            $queryStr = $url . "?key=" . $this->key . "&" . $param;
+
+            $result = $this->tryHttp($queryStr);
+
+            return $result;
         }
 
 

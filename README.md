@@ -6,13 +6,18 @@
 ## Installing
 
 ```shell
-$ composer require liujinyong/tencent-map-server-api -vvv
+$ composer require liujinyong/tencent-map-server-api
 ```
 
 ## Usage
 
-```phpt
-    $map = new Map($key);
+```php
+     require __DIR__ . '/vendor/autoload.php';
+
+
+    $map    = new \Liujinyong\TencentMapServerApi\Map("腾讯地图的key");
+     //获取货车路线规划&距离矩阵
+    $result = $map->trucking([ "from" => "39.08738,117.12423","to"   => "39.126987,117.165665"]);
     
 ```
 

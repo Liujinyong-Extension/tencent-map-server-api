@@ -11,7 +11,10 @@ $ composer require liujinyong/tencent-map-server-api -vvv
 
 ## Usage
 
-TODO
+```phpt
+    $map = new Map($key);
+    
+```
 
 ## Contributing
 

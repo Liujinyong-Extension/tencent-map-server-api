@@ -8,7 +8,9 @@
             "email": "realbrahma@163.com"
         }
     ],
-    "require": {},
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    },
     "autoload": {
         "psr-4": {
             "Liujinyong\\TencentMapServerApi\\": "src"
